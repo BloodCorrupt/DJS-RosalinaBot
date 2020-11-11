@@ -9,6 +9,7 @@ client.on('ready', () => {
   console.log('The client is ready!')
 
   welcome(client)
+  })
   command(client, 'serverinfo', (message) => {
     const { guild } = message
 
@@ -39,8 +40,29 @@ client.on('ready', () => {
 
     message.channel.send(embed)
   })
+
   command(client, ['ping', 'test'], (message) => {
     message.channel.send('Pong!')
   })
-})
+  command(client, 'RicoMilosSSet', (message) => {
+	if (message.member.hasPermission('ADMINISTRATOR')) {
+    const content = message.content.replace('/RicoMilosSSet ', '')
+    // "!status hello world" -> "hello world"
+
+    client.user.setPresence({
+      activity: {
+        name: content,
+        type: 0,
+      },
+    })
+	}
+  })
+  command(client, 'membercount', (message) => {
+    client.guilds.cache.forEach((guild) => {
+      message.channel.send(
+        `${guild.name} has a total of ${guild.memberCount} members`
+      )
+    })
+  })
+  
 client.login(process.env.BOT_TOKEN)
