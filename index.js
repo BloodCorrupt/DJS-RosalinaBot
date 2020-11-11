@@ -57,6 +57,18 @@ client.on('ready', () => {
     })
 	}
   })
+  
+  command(client, 'RicoMilosStatus', (message) => {
+	if (message.member.hasPermission('ADMINISTRATOR')) {
+    const content = message.content.replace('/RicoMilosStatus ', '')
+    // "!status hello world" -> "hello world"
+
+    client.user.setPresence({
+      status: content,
+    })
+	}
+  })
+  
   command(client, 'membercount', (message) => {
     client.guilds.cache.forEach((guild) => {
       message.channel.send(
