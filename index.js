@@ -9,7 +9,6 @@ client.on('ready', () => {
   console.log('The client is ready!')
 
   welcome(client)
-  })
   command(client, 'serverinfo', (message) => {
     const { guild } = message
 
@@ -40,10 +39,11 @@ client.on('ready', () => {
 
     message.channel.send(embed)
   })
-
   command(client, ['ping', 'test'], (message) => {
     message.channel.send('Pong!')
   })
+})
+
   command(client, 'RicoMilosSSet', (message) => {
 	if (message.member.hasPermission('ADMINISTRATOR')) {
     const content = message.content.replace('/RicoMilosSSet ', '')
