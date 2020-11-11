@@ -42,18 +42,5 @@ client.on('ready', () => {
   command(client, ['ping', 'test'], (message) => {
     message.channel.send('Pong!')
   })
-  
-  command(client, 'status', (message) => {
-    const content = message.content.replace('!status ', '')
-    // "!status hello world" -> "hello world"
-
-    client.user.setPresence({
-      activity: {
-        name: content,
-        type: 0,
-      },
-    })
 })
-
-
 client.login(process.env.BOT_TOKEN)
