@@ -2,14 +2,13 @@ const Discord = require('discord.js')
 const client = new Discord.Client()
 
 const config = require('./config.json')
-const welcome = require('./welcome')
-const command = require('./command')
+const welcome = require('./welcome.js')
+const command = require('./command.js')
 
 client.on('ready', () => {
   console.log('The client is ready!')
 
   welcome(client)
-  })
   command(client, 'serverinfo', (message) => {
     const { guild } = message
 
@@ -40,9 +39,9 @@ client.on('ready', () => {
 
     message.channel.send(embed)
   })
-
   command(client, ['ping', 'test'], (message) => {
     message.channel.send('Pong!')
+  })
   })
   command(client, 'RicoMilosSSet', (message) => {
 	if (message.member.hasPermission('ADMINISTRATOR')) {
@@ -81,5 +80,5 @@ client.on('ready', () => {
 //    user.send('Hello World!')
 //	})
 //  })
-  
+   
 client.login(process.env.BOT_TOKEN)
