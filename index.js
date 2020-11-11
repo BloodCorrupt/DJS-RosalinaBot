@@ -13,7 +13,7 @@ client.on('ready', () => {
   command(client, ['ping', 'test'], (message) => {
     message.channel.send('Pong!')
   })
-  })
+
   command(client, 'RicoMilosSSet', (message) => {
 	if (message.member.hasPermission('ADMINISTRATOR')) {
     const content = message.content.replace('/RicoMilosSSet ', '')
